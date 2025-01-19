@@ -1,7 +1,7 @@
 package org.example;
 
-public class Account {
-    protected double balance;
+public abstract class Account {
+    protected static double balance;
     protected int numConsignations;
     protected int numWithdrawals;
     protected double yearlyRate;
@@ -20,6 +20,10 @@ public class Account {
             balance += value;
             numConsignations++;
         }
+    }
+
+    public boolean deposit(double amount) {
+        return false;
     }
 
     public boolean withdrawal (double value){
@@ -53,7 +57,7 @@ public class Account {
         );
     }
 
-    public double getBalance(){
+    public static double getBalance(){
         return balance;
     }
 
@@ -64,4 +68,9 @@ public class Account {
     public int getNumWithdrawals() {
         return numWithdrawals;
     }
+
+    public void consignate(double value) {
+    }
+
+    public abstract void monthlyExtract();
 }
